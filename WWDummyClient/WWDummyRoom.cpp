@@ -217,7 +217,11 @@ void WWDummyRoom::EnterGameSC(SessionInfo sessionInfo, short enterGameResult, LO
 			_wwDummyClient->Disconnect(sessionInfo);
 		}
 	}
-	else if (enterGameResult != NAME_DUPLICATION)
+	else if (enterGameResult == NAME_DUPLICATION)
+	{
+		_wwDummyClient->Disconnect(sessionInfo);
+	}
+	else 
 	{
 		_enterFailCnt++;
 	}
