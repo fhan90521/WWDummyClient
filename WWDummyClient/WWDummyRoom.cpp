@@ -27,9 +27,7 @@ void WWDummyRoom::Update()
 			if (dummySession->sessionType == SessionType::GUEST)
 			{
 
-				WString dummyNickName = L"DUMMY"; 
-				dummyNickName.append(std::to_wstring(_startDummyID)); 
-				dummyNickName.push_back(L'_');
+				WString dummyNickName = L"DUMMY_"; 
 				dummyNickName.append(std::to_wstring(_newDummyID++));
 				dummySession->bChangingMap = true;
 				_wwDummyClient->EnterGame_CS(dummySessionInfo, dummyNickName);
@@ -131,10 +129,6 @@ void WWDummyRoom::GetDummyOption()
 
 	std::cout << "changeMapProbaility :";
 	std::cin >> _changeMapProbaility;
-
-
-	std::cout << "startDummyID : ";
-	std::cin >> _startDummyID;
 
 	std::cout << "randonSeed : ";
 	std::cin >> _randonSeed;
