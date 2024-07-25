@@ -27,8 +27,13 @@ void WWDummyRoom::Update()
 			if (dummySession->sessionType == SessionType::GUEST)
 			{
 
+<<<<<<< HEAD
 				WString dummyNickName = L"DUMMY_"; 
 				dummyNickName.append(std::to_wstring(_newDummyID++));
+=======
+				WString dummyNickName = L"DUMMY_";
+				dummyNickName.append(std::to_wstring(_startDummyID + _newDummyID++));
+>>>>>>> parent of 210cfc1 (더미두개를 하나의 서버에 사용할 수 있게 함)
 				dummySession->bChangingMap = true;
 				_wwDummyClient->EnterGame_CS(dummySessionInfo, dummyNickName);
 			}
