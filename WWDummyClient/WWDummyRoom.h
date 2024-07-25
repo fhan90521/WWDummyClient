@@ -9,6 +9,7 @@ private:
 	int _doingContentProbability = 5;
 	int _changeMapProbaility = 5;
 	ULONG64 _newDummyID = 0;
+	ULONG64 _startDummyID = 0;
 	int _randonSeed = 0;
 	int _disconnectProbability = 1;
 	

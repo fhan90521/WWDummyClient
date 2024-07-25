@@ -27,13 +27,11 @@ void WWDummyRoom::Update()
 			if (dummySession->sessionType == SessionType::GUEST)
 			{
 
-<<<<<<< HEAD
-				WString dummyNickName = L"DUMMY_"; 
+
+				WString dummyNickName = L"DUMMY";
+				dummyNickName.append(std::to_wstring(_startDummyID));
 				dummyNickName.append(std::to_wstring(_newDummyID++));
-=======
-				WString dummyNickName = L"DUMMY_";
-				dummyNickName.append(std::to_wstring(_startDummyID + _newDummyID++));
->>>>>>> parent of 210cfc1 (더미두개를 하나의 서버에 사용할 수 있게 함)
+
 				dummySession->bChangingMap = true;
 				_wwDummyClient->EnterGame_CS(dummySessionInfo, dummyNickName);
 			}
@@ -135,8 +133,12 @@ void WWDummyRoom::GetDummyOption()
 	std::cout << "changeMapProbaility :";
 	std::cin >> _changeMapProbaility;
 
+	std::cout << "startDummyID: ";
+	std::cin >> _startDummyID;
+
 	std::cout << "randonSeed : ";
 	std::cin >> _randonSeed;
+
 	
 	std::cout << "disconnectProbability : ";
 	std::cin >> _disconnectProbability;
@@ -261,10 +263,6 @@ void WWDummyRoom::CreateOtherCharacterSC(SessionInfo sessionInfo, short mapID, L
 			if (returnInsert.second == false)
 			{
 				_creatAleadyExistOhterCharacter++;
-			}
-			else
-			{
-				int a = 10;
 			}
 		}
 	}
