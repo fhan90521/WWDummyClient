@@ -49,8 +49,8 @@ void WWDummyRoom::Update()
 					}
 					else
 					{
-						int destinationX = rand() % (MAP_WIDTH+ MAP_WIDTH/50) - MAP_WIDTH /25;
-						int destinationY = rand() % (MAP_HEIGHT+ MAP_WIDTH /50) - MAP_WIDTH / 25;
+						int destinationX = rand() % (MAP_WIDTH+100);
+						int destinationY = rand() % (MAP_HEIGHT+100);
 						_wwDummyClient->MoveMyCharacter_CS(dummySessionInfo, dummySession->mapID, destinationX, destinationY);
 					}
 				}
