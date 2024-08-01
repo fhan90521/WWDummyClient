@@ -311,6 +311,9 @@ bool WonsikWorldClientStub::PacketProc(CRecvBuffer& buf)
 		return PacketProcHeartBeat_CS(buf);
 		break;
 	}
+	default:
+	{
+		return false;
 	}
-	return false;
+	}
 }

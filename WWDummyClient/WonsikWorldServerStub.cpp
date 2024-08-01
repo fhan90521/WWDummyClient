@@ -311,6 +311,9 @@ bool WonsikWorldServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf
 		return PacketProcHeartBeat_CS(sessionInfo, buf);
 		break;
 	}
+	default:
+	{
+		return false;
 	}
-	return false;
+	}
 }
