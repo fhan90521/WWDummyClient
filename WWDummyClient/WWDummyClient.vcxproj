@@ -133,6 +133,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>python ./RPCcompiler2.0.py ./WWRPCRef.txt WonsikWorld</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="WonsikWorldDummyProxy.cpp" />
@@ -151,7 +154,11 @@
     <ClInclude Include="WWEnum.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RPCcompiler2.0.py" />
     <None Include="WWDummySet.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="WWRPCRef.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

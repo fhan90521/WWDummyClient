@@ -58,5 +58,13 @@
     <None Include="WWDummySet.json">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="RPCcompiler2.0.py">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="WWRPCRef.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
