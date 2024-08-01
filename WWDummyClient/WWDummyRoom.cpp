@@ -182,12 +182,12 @@ WWDummyRoom::~WWDummyRoom()
 
 void WWDummyRoom::Enter(SessionInfo sessionInfo)
 {
-	_dummySessionMap[sessionInfo.id] = new WWDummySession;
+	_dummySessionMap[sessionInfo.Id()] = new WWDummySession;
 }
 
 void WWDummyRoom::Leave(SessionInfo sessionInfo)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->bSelfDisconnect == false)
@@ -208,7 +208,7 @@ void WWDummyRoom::EnterGameSC(SessionInfo sessionInfo, short enterGameResult, LO
 	if (enterGameResult == ENTER_GAME_SUCCESS)
 	{
 
-		auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+		auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 		if (iterDummy != _dummySessionMap.end())
 		{
 			iterDummy->second->sessionType = SessionType::PLAYER;
@@ -233,7 +233,7 @@ void WWDummyRoom::EnterGameSC(SessionInfo sessionInfo, short enterGameResult, LO
 void WWDummyRoom::CreateMyCharacterSC(SessionInfo sessionInfo, short mapID)
 {
 
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
@@ -250,7 +250,7 @@ void WWDummyRoom::CreateMyCharacterSC(SessionInfo sessionInfo, short mapID)
 
 void WWDummyRoom::CreateOtherCharacterSC(SessionInfo sessionInfo, short mapID, LONG64 playerID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
@@ -275,7 +275,7 @@ void WWDummyRoom::CreateOtherCharacterSC(SessionInfo sessionInfo, short mapID, L
 
 void WWDummyRoom::DeleteCharacterSC(SessionInfo sessionInfo, short mapID, LONG64 playerID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
@@ -300,7 +300,7 @@ void WWDummyRoom::DeleteCharacterSC(SessionInfo sessionInfo, short mapID, LONG64
 
 void WWDummyRoom::ChangeMapSC(SessionInfo sessionInfo, short beforeMapID, short afterMapID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != beforeMapID)
@@ -323,7 +323,7 @@ void WWDummyRoom::ChangeMapSC(SessionInfo sessionInfo, short beforeMapID, short 
 
 void WWDummyRoom::SendChatMessageSC(SessionInfo sessionInfo, short mapID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
@@ -340,7 +340,7 @@ void WWDummyRoom::SendChatMessageSC(SessionInfo sessionInfo, short mapID)
 
 void WWDummyRoom::MoveMyCharacterSC(SessionInfo sessionInfo, short mapID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
@@ -357,7 +357,7 @@ void WWDummyRoom::MoveMyCharacterSC(SessionInfo sessionInfo, short mapID)
 
 void WWDummyRoom::MoveOtherCharacterSC(SessionInfo sessionInfo, short mapID)
 {
-	auto iterDummy = _dummySessionMap.find(sessionInfo.id);
+	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
 	{
 		if (iterDummy->second->mapID != mapID)
