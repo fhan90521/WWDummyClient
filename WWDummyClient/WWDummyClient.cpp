@@ -69,7 +69,7 @@ void WWDummyClient::ProcChangeMap_SC(SessionInfo sessionInfo, short beforeMapID,
 
 void WWDummyClient::ProcSendChatMessage_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, WString& chatMessage)
 {
-	_wwDummyRoom->PushJob(&WWDummyRoom::SendChatMessageSC, sessionInfo, mapID);
+	_wwDummyRoom->PushJob(&WWDummyRoom::SendChatMessageSC, sessionInfo, mapID, playerID);
 }
 
 void WWDummyClient::ProcMoveMyCharacter_SC(SessionInfo sessionInfo, short mapID, Vector<float>& destinationsX, Vector<float>& destinationsY)
@@ -79,5 +79,5 @@ void WWDummyClient::ProcMoveMyCharacter_SC(SessionInfo sessionInfo, short mapID,
 
 void WWDummyClient::ProcMoveOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, Vector<float>& destinationsX, Vector<float>& destinationsY)
 {
-	_wwDummyRoom->PushJob(&WWDummyRoom::MoveOtherCharacterSC, sessionInfo, mapID);
+	_wwDummyRoom->PushJob(&WWDummyRoom::MoveOtherCharacterSC, sessionInfo, mapID, playerID);
 }

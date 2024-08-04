@@ -77,7 +77,7 @@ void WWDummyRoom::Update()
 
 void WWDummyRoom::UpdateThreadFunc()
 {
-	srand(_randonSeed);
+	srand(_randomSeed);
 	while (1)
 	{
 		DWORD retWait = WaitForSingleObject(_hShutDownEvent, _updatePeriod);
@@ -136,8 +136,8 @@ void WWDummyRoom::GetDummyOption()
 	std::cout << "startDummyID: ";
 	std::cin >> _startDummyID;
 
-	std::cout << "randonSeed : ";
-	std::cin >> _randonSeed;
+	std::cout << "randomSeed : ";
+	std::cin >> _randomSeed;
 
 	
 	std::cout << "disconnectProbability : ";
@@ -287,7 +287,7 @@ void WWDummyRoom::DeleteCharacterSC(SessionInfo sessionInfo, short mapID, LONG64
 			int returnErase = iterDummy->second->otherPlayerIDs.erase(playerID);
 			if (returnErase != 1)
 			{
-				_deleteNoneExistCharacter++;
+				_noneExistDeleteCharacter++;
 			}
 		}
 	}
@@ -321,7 +321,7 @@ void WWDummyRoom::ChangeMapSC(SessionInfo sessionInfo, short beforeMapID, short 
 	}
 }
 
-void WWDummyRoom::SendChatMessageSC(SessionInfo sessionInfo, short mapID)
+void WWDummyRoom::SendChatMessageSC(SessionInfo sessionInfo, short mapID, LONG64 playerID)
 {
 	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
@@ -329,6 +329,11 @@ void WWDummyRoom::SendChatMessageSC(SessionInfo sessionInfo, short mapID)
 		if (iterDummy->second->mapID != mapID)
 		{
 			_mapIdErrorInSendChatMessage++;
+		}
+		Set<LONG64>& otherPlayerIDs = iterDummy->second->otherPlayerIDs;
+		if (otherPlayerIDs.find(playerID) == otherPlayerIDs.end())
+		{
+			_noneExistSendChatMessage++;
 		}
 	}
 	else
@@ -355,7 +360,8 @@ void WWDummyRoom::MoveMyCharacterSC(SessionInfo sessionInfo, short mapID)
 	}
 }
 
-void WWDummyRoom::MoveOtherCharacterSC(SessionInfo sessionInfo, short mapID)
+
+void WWDummyRoom::MoveOtherCharacterSC(SessionInfo sessionInfo, short mapID, LONG64 playerID)
 {
 	auto iterDummy = _dummySessionMap.find(sessionInfo.Id());
 	if (iterDummy != _dummySessionMap.end())
@@ -363,6 +369,11 @@ void WWDummyRoom::MoveOtherCharacterSC(SessionInfo sessionInfo, short mapID)
 		if (iterDummy->second->mapID != mapID)
 		{
 			_mapIdErrorInMoveOtherCharacter++;
+		}
+		Set<LONG64>& otherPlayerIDs = iterDummy->second->otherPlayerIDs;
+		if (otherPlayerIDs.find(playerID) == otherPlayerIDs.end())
+		{
+			_noneExistSendChatMessage++;
 		}
 	}
 	else
@@ -383,13 +394,17 @@ void WWDummyRoom::PrintRoomStatus()
 	enterFailCnt : {}
 	mapIdErrorInCreatMyCharacter : {}
 	mapIdErrorInCreatOhterCharacter : {}
-	creatAleadyExistOhterCharacter : {}
 	mapIdErrorInDeleteCharacter : {}
-	deleteNoneExistCharacter : {}
+	
 	mapIdErrorInChangeMap :{} 
 	mapIdErrorInSendChatMessage :{}
 	mapIdErrorInMoveMyCharacter : {}
 	mapIdErrorInMoveOtherCharacter :{}
+
+	creatAleadyExistOhterCharacter : {}
+	NoneExistDeleteCharacter : {}
+	NoneExistSendChatMessage : {}
+	NoneExistMoveOtherCharacter : {}
 )",
 _dummySessionMap.size(),
 _connectFailCnt,
@@ -399,9 +414,12 @@ _mapIdErrorInCreatMyCharacter,
 _mapIdErrorInCreatOhterCharacter,
 _creatAleadyExistOhterCharacter,
 _mapIdErrorInDeleteCharacter,
-_deleteNoneExistCharacter,
 _mapIdErrorInChangeMap,
 _mapIdErrorInSendChatMessage,
 _mapIdErrorInMoveMyCharacter,
-_mapIdErrorInMoveOtherCharacter);
+_mapIdErrorInMoveOtherCharacter,
+_noneExistDeleteCharacter,
+_noneExistSendChatMessage,
+_noneExistMoveOtherCharacter
+);
 }
