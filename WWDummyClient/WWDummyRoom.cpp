@@ -88,8 +88,8 @@ void WWDummyRoom::UpdateThreadFunc()
 
 		ConnectWork();
 		//¿‚√≥∏Æ
-		int queueLen = GetJobQueueLen();
-		for (int i = 0; i < queueLen; i++)
+		size_t queueLen = GetJobQueueLen();
+		for (size_t i = 0; i < queueLen; i++)
 		{
 			Job* pJob = nullptr;
 			PopJob(&pJob);
