@@ -35,8 +35,10 @@ private:
 private:
 	Vector<WString> _dummyChats;
 	HANDLE _hShutDownEvent;
-	std::jthread* _updateThread;
+	std::thread* _updateThread;
 	Map<SessionInfo::ID, class WWDummySession*> _dummySessionMap;
+	
+	
 	void Update();
 	void UpdateThreadFunc();
 	class WWDummyClient* _wwDummyClient = nullptr;

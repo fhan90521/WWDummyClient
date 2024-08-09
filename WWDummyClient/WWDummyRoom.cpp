@@ -168,7 +168,7 @@ WWDummyRoom::WWDummyRoom(WWDummyClient* wwDummyClient)
 	GetDummyOption();
 	_wwDummyClient = wwDummyClient;
 	_hShutDownEvent = CreateEvent(NULL, TRUE, false, NULL);
-	_updateThread = new std::jthread(&WWDummyRoom::UpdateThreadFunc, this);
+	_updateThread = new std::thread(&WWDummyRoom::UpdateThreadFunc, this);
 }
 
 WWDummyRoom::~WWDummyRoom()
