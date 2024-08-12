@@ -1,6 +1,6 @@
-#include  "WonsikWorldDummyProxy.h"
+#include "WonsikWorldDummyProxy.h"
 #include "WonsikWorldPKT_TYPE.h"
-void WonsikWorldDummyProxy::EnterGame_CS(SessionInfo sessionInfo, WString& nickName, bool bDisconnect)
+void WonsikWorldDummyProxy::EnterGame_CS(SessionInfo sessionInfo, const WString& nickName, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -11,10 +11,10 @@ void WonsikWorldDummyProxy::EnterGame_CS(SessionInfo sessionInfo, WString& nickN
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::EnterGame_CS(List<SessionInfo>& sessionInfoList, WString& nickName, bool bDisconnect)
+void WonsikWorldDummyProxy::EnterGame_CS(const List<SessionInfo>& sessionInfoList, const WString& nickName, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -27,7 +27,7 @@ void WonsikWorldDummyProxy::EnterGame_CS(List<SessionInfo>& sessionInfoList, WSt
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -42,10 +42,10 @@ void WonsikWorldDummyProxy::EnterGame_SC(SessionInfo sessionInfo, short enterGam
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::EnterGame_SC(List<SessionInfo>& sessionInfoList, short enterGameResult, LONG64 playerID, bool bDisconnect)
+void WonsikWorldDummyProxy::EnterGame_SC(const List<SessionInfo>& sessionInfoList, short enterGameResult, LONG64 playerID, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -58,7 +58,7 @@ void WonsikWorldDummyProxy::EnterGame_SC(List<SessionInfo>& sessionInfoList, sho
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -73,10 +73,10 @@ void WonsikWorldDummyProxy::CreateMyCharacter_SC(SessionInfo sessionInfo, short 
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::CreateMyCharacter_SC(List<SessionInfo>& sessionInfoList, short mapID, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
+void WonsikWorldDummyProxy::CreateMyCharacter_SC(const List<SessionInfo>& sessionInfoList, short mapID, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -89,11 +89,11 @@ void WonsikWorldDummyProxy::CreateMyCharacter_SC(List<SessionInfo>& sessionInfoL
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::CreateOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, WString& nickName, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
+void WonsikWorldDummyProxy::CreateOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, const WString& nickName, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -104,10 +104,10 @@ void WonsikWorldDummyProxy::CreateOtherCharacter_SC(SessionInfo sessionInfo, sho
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::CreateOtherCharacter_SC(List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, WString& nickName, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
+void WonsikWorldDummyProxy::CreateOtherCharacter_SC(const List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, const WString& nickName, float dirX, float dirY, float locationX, float locationY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -120,7 +120,7 @@ void WonsikWorldDummyProxy::CreateOtherCharacter_SC(List<SessionInfo>& sessionIn
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -135,10 +135,10 @@ void WonsikWorldDummyProxy::DeleteCharacter_SC(SessionInfo sessionInfo, short ma
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::DeleteCharacter_SC(List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, bool bDisconnect)
+void WonsikWorldDummyProxy::DeleteCharacter_SC(const List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -151,7 +151,7 @@ void WonsikWorldDummyProxy::DeleteCharacter_SC(List<SessionInfo>& sessionInfoLis
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -166,10 +166,10 @@ void WonsikWorldDummyProxy::ChangeMap_CS(SessionInfo sessionInfo, short beforeMa
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::ChangeMap_CS(List<SessionInfo>& sessionInfoList, short beforeMapID, short afterMapID, bool bDisconnect)
+void WonsikWorldDummyProxy::ChangeMap_CS(const List<SessionInfo>& sessionInfoList, short beforeMapID, short afterMapID, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -182,7 +182,7 @@ void WonsikWorldDummyProxy::ChangeMap_CS(List<SessionInfo>& sessionInfoList, sho
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -197,10 +197,10 @@ void WonsikWorldDummyProxy::ChangeMap_SC(SessionInfo sessionInfo, short beforeMa
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::ChangeMap_SC(List<SessionInfo>& sessionInfoList, short beforeMapID, short afterMapID, bool bDisconnect)
+void WonsikWorldDummyProxy::ChangeMap_SC(const List<SessionInfo>& sessionInfoList, short beforeMapID, short afterMapID, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -213,11 +213,11 @@ void WonsikWorldDummyProxy::ChangeMap_SC(List<SessionInfo>& sessionInfoList, sho
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::SendChatMessage_CS(SessionInfo sessionInfo, short mapID, WString& chatMessage, bool bDisconnect)
+void WonsikWorldDummyProxy::SendChatMessage_CS(SessionInfo sessionInfo, short mapID, const WString& chatMessage, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -228,10 +228,10 @@ void WonsikWorldDummyProxy::SendChatMessage_CS(SessionInfo sessionInfo, short ma
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::SendChatMessage_CS(List<SessionInfo>& sessionInfoList, short mapID, WString& chatMessage, bool bDisconnect)
+void WonsikWorldDummyProxy::SendChatMessage_CS(const List<SessionInfo>& sessionInfoList, short mapID, const WString& chatMessage, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -244,11 +244,11 @@ void WonsikWorldDummyProxy::SendChatMessage_CS(List<SessionInfo>& sessionInfoLis
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::SendChatMessage_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, WString& chatMessage, bool bDisconnect)
+void WonsikWorldDummyProxy::SendChatMessage_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, const WString& chatMessage, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -259,10 +259,10 @@ void WonsikWorldDummyProxy::SendChatMessage_SC(SessionInfo sessionInfo, short ma
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::SendChatMessage_SC(List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, WString& chatMessage, bool bDisconnect)
+void WonsikWorldDummyProxy::SendChatMessage_SC(const List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, const WString& chatMessage, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -275,7 +275,7 @@ void WonsikWorldDummyProxy::SendChatMessage_SC(List<SessionInfo>& sessionInfoLis
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -290,10 +290,10 @@ void WonsikWorldDummyProxy::MoveMyCharacter_CS(SessionInfo sessionInfo, short ma
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::MoveMyCharacter_CS(List<SessionInfo>& sessionInfoList, short mapID, float destinationX, float destinationY, bool bDisconnect)
+void WonsikWorldDummyProxy::MoveMyCharacter_CS(const List<SessionInfo>& sessionInfoList, short mapID, float destinationX, float destinationY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -306,11 +306,11 @@ void WonsikWorldDummyProxy::MoveMyCharacter_CS(List<SessionInfo>& sessionInfoLis
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::MoveMyCharacter_SC(SessionInfo sessionInfo, short mapID, Vector<float>& destinationsX, Vector<float>& destinationsY, bool bDisconnect)
+void WonsikWorldDummyProxy::MoveMyCharacter_SC(SessionInfo sessionInfo, short mapID, const Vector<float>& destinationsX, const Vector<float>& destinationsY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -321,10 +321,10 @@ void WonsikWorldDummyProxy::MoveMyCharacter_SC(SessionInfo sessionInfo, short ma
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::MoveMyCharacter_SC(List<SessionInfo>& sessionInfoList, short mapID, Vector<float>& destinationsX, Vector<float>& destinationsY, bool bDisconnect)
+void WonsikWorldDummyProxy::MoveMyCharacter_SC(const List<SessionInfo>& sessionInfoList, short mapID, const Vector<float>& destinationsX, const Vector<float>& destinationsY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -337,11 +337,11 @@ void WonsikWorldDummyProxy::MoveMyCharacter_SC(List<SessionInfo>& sessionInfoLis
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::MoveOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, Vector<float>& destinationsX, Vector<float>& destinationsY, bool bDisconnect)
+void WonsikWorldDummyProxy::MoveOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, const Vector<float>& destinationsX, const Vector<float>& destinationsY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -352,10 +352,10 @@ void WonsikWorldDummyProxy::MoveOtherCharacter_SC(SessionInfo sessionInfo, short
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::MoveOtherCharacter_SC(List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, Vector<float>& destinationsX, Vector<float>& destinationsY, bool bDisconnect)
+void WonsikWorldDummyProxy::MoveOtherCharacter_SC(const List<SessionInfo>& sessionInfoList, short mapID, LONG64 playerID, const Vector<float>& destinationsX, const Vector<float>& destinationsY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -368,7 +368,7 @@ void WonsikWorldDummyProxy::MoveOtherCharacter_SC(List<SessionInfo>& sessionInfo
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
@@ -383,10 +383,10 @@ void WonsikWorldDummyProxy::HeartBeat_CS(SessionInfo sessionInfo, bool bDisconne
 	catch(int useSize)
 	{
 	}
-	_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+	_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void WonsikWorldDummyProxy::HeartBeat_CS(List<SessionInfo>& sessionInfoList, bool bDisconnect)
+void WonsikWorldDummyProxy::HeartBeat_CS(const List<SessionInfo>& sessionInfoList, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -399,7 +399,7 @@ void WonsikWorldDummyProxy::HeartBeat_CS(List<SessionInfo>& sessionInfoList, boo
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pDummy->Unicast(sessionInfo, pBuf, bDisconnect);
+		_pDummyClient->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
