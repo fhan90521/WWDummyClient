@@ -4,7 +4,7 @@
 #include "WonsikWorldServerStub.h"
 #include <thread>
 #include "MyStlContainer.h"
-class WWDummyClient: public IOCPDummyClient,public WonsikWorldDummyProxy, public WonsikWorldServerStub
+class WWDummyClient: public IOCPDummyClient,public WonsikWorldDummyProxy, private WonsikWorldServerStub
 {
 private:
 	virtual void OnConnect(SessionInfo sessionInfo) override;
