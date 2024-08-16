@@ -144,6 +144,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="WonsikWorldServerStub.cpp" />
     <ClCompile Include="WWDummyClient.cpp" />
+    <ClCompile Include="WWVector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\UnrealNetLibrary\UnrealNetLibrary\WonsikWorldDummyProxy.h" />
@@ -153,9 +154,9 @@
     <ClInclude Include="WWDummyClient.h" />
     <ClInclude Include="WWDummySession.h" />
     <ClInclude Include="WWEnum.h" />
+    <ClInclude Include="WWVector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RPCcompiler2.0.py" />
     <None Include="WWDummySet.json" />
   </ItemGroup>
   <ItemGroup>

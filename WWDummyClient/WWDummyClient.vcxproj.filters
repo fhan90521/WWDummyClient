@@ -30,6 +30,9 @@
     <ClCompile Include="WonsikWorldDummyProxy.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="WWVector2D.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WWDummyClient.h">
@@ -53,12 +56,12 @@
     <ClInclude Include="WWEnum.h">
       <Filter>리소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="WWVector2D.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="WWDummySet.json">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="RPCcompiler2.0.py">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

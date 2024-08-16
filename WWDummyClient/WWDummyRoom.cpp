@@ -5,6 +5,7 @@
 #include <format>
 #include <iostream>
 #include <fstream>
+#include "WWVector2D.h"
 void WWDummyRoom::Update()
 {
 	for (auto& dummyPair : _dummySessionMap)
@@ -51,7 +52,7 @@ void WWDummyRoom::Update()
 					{
 						int destinationX = (rand() % (MAP_WIDTH+1000))-500;
 						int destinationY = (rand() % (MAP_HEIGHT+1000))-500;
-						_wwDummyClient->MoveMyCharacter_CS(dummySessionInfo, dummySession->mapID, destinationX, destinationY);
+						_wwDummyClient->MoveMyCharacter_CS(dummySessionInfo, dummySession->mapID, WWVector2D(destinationX, destinationY));
 					}
 				}
 
@@ -359,7 +360,6 @@ void WWDummyRoom::MoveMyCharacterSC(SessionInfo sessionInfo, short mapID)
 		_wwDummyClient->Disconnect(sessionInfo);
 	}
 }
-
 
 void WWDummyRoom::MoveOtherCharacterSC(SessionInfo sessionInfo, short mapID, LONG64 playerID)
 {

@@ -47,12 +47,12 @@ void WWDummyClient::ProcEnterGame_SC(SessionInfo sessionInfo, short enterGameRes
 	_wwDummyRoom->PushJob(&WWDummyRoom::EnterGameSC, sessionInfo, enterGameResult, playerID);
 }
 
-void WWDummyClient::ProcCreateMyCharacter_SC(SessionInfo sessionInfo, short mapID, float dirX, float dirY, float locationX, float locationY)
+void WWDummyClient::ProcCreateMyCharacter_SC(SessionInfo sessionInfo, short mapID, WWVector2D& dirVec, WWVector2D& location)
 {
 	_wwDummyRoom->PushJob(&WWDummyRoom::CreateMyCharacterSC, sessionInfo, mapID);
 }
 
-void WWDummyClient::ProcCreateOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, WString& nickName, float dirX, float dirY, float locationX, float locationY)
+void WWDummyClient::ProcCreateOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, WString& nickName, WWVector2D& dirVec, WWVector2D& location)
 {
 	_wwDummyRoom->PushJob(&WWDummyRoom::CreateOtherCharacterSC, sessionInfo, mapID, playerID);
 }
@@ -72,12 +72,12 @@ void WWDummyClient::ProcSendChatMessage_SC(SessionInfo sessionInfo, short mapID,
 	_wwDummyRoom->PushJob(&WWDummyRoom::SendChatMessageSC, sessionInfo, mapID, playerID);
 }
 
-void WWDummyClient::ProcMoveMyCharacter_SC(SessionInfo sessionInfo, short mapID, Vector<float>& destinationsX, Vector<float>& destinationsY)
+void WWDummyClient::ProcMoveMyCharacter_SC(SessionInfo sessionInfo, short mapID, Vector<WWVector2D>& destinations)
 {
 	_wwDummyRoom->PushJob(&WWDummyRoom::MoveMyCharacterSC, sessionInfo, mapID);
 }
 
-void WWDummyClient::ProcMoveOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, Vector<float>& destinationsX, Vector<float>& destinationsY)
+void WWDummyClient::ProcMoveOtherCharacter_SC(SessionInfo sessionInfo, short mapID, LONG64 playerID, Vector<WWVector2D>& destinations)
 {
 	_wwDummyRoom->PushJob(&WWDummyRoom::MoveOtherCharacterSC, sessionInfo, mapID, playerID);
 }
