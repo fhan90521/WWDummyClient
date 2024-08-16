@@ -27,10 +27,10 @@
     <ClCompile Include="WWDummyRoom.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="WonsikWorldDummyProxy.cpp">
+    <ClCompile Include="WWVector2D.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="WWVector2D.cpp">
+    <ClCompile Include="WonsikWorldDummyProxy.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,9 +44,6 @@
     <ClInclude Include="WonsikWorldPKT_TYPE.h">
       <Filter>리소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\UnrealNetLibrary\UnrealNetLibrary\WonsikWorldDummyProxy.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="WWDummySession.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -57,6 +54,9 @@
       <Filter>리소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="WWVector2D.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WonsikWorldDummyProxy.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

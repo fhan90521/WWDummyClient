@@ -147,7 +147,7 @@
     <ClCompile Include="WWVector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\UnrealNetLibrary\UnrealNetLibrary\WonsikWorldDummyProxy.h" />
+    <ClInclude Include="WonsikWorldDummyProxy.h" />
     <ClInclude Include="WWDummyRoom.h" />
     <ClInclude Include="WonsikWorldPKT_TYPE.h" />
     <ClInclude Include="WonsikWorldServerStub.h" />
