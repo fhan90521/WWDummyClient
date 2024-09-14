@@ -1,10 +1,10 @@
 #pragma once
-#include "Session.h"
-#include "CRecvBuffer.h"
-#include "MyStlContainer.h"
+#include "Network/Session.h"
+#include "Buffer/CRecvBuffer.h"
+#include "Container/MyStlContainer.h"
 #include "WonsikWorldPKT_TYPE.h"
 class WWVector2D;
-class WonsikWorldServerStub
+class WonsikWorldDummyStub
 {
 public:
 	bool PacketProcEnterGame_CS(SessionInfo sessionInfo, CRecvBuffer& buf);

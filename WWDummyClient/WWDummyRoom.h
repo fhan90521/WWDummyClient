@@ -1,6 +1,6 @@
 #pragma once
-#include "JobQueue.h"
-#include "Session.h"
+#include "Job/JobQueue.h"
+#include "Network/Session.h"
 class WWDummyRoom : public JobQueue
 {
 private:

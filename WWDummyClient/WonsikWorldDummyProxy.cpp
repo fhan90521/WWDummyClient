@@ -1,5 +1,6 @@
 #include "WonsikWorldDummyProxy.h"
 #include "WonsikWorldPKT_TYPE.h"
+#include "Network/IOCPDummyClient.h"
 #include "WWVector2D.h"
 void WonsikWorldDummyProxy::EnterGame_CS(SessionInfo sessionInfo, const WString& nickName, bool bDisconnect)
 {

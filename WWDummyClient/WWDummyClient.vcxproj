@@ -140,17 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="WonsikWorldDummyProxy.cpp" />
+    <ClCompile Include="WonsikWorldDummyStub.cpp" />
     <ClCompile Include="WWDummyRoom.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="WonsikWorldServerStub.cpp" />
     <ClCompile Include="WWDummyClient.cpp" />
     <ClCompile Include="WWVector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WonsikWorldDummyProxy.h" />
+    <ClInclude Include="WonsikWorldDummyStub.h" />
     <ClInclude Include="WWDummyRoom.h" />
     <ClInclude Include="WonsikWorldPKT_TYPE.h" />
-    <ClInclude Include="WonsikWorldServerStub.h" />
     <ClInclude Include="WWDummyClient.h" />
     <ClInclude Include="WWDummySession.h" />
     <ClInclude Include="WWEnum.h" />

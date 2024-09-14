@@ -21,9 +21,6 @@
     <ClCompile Include="WWDummyClient.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="WonsikWorldServerStub.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="WWDummyRoom.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -33,12 +30,12 @@
     <ClCompile Include="WonsikWorldDummyProxy.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="WonsikWorldDummyStub.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WWDummyClient.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="WonsikWorldServerStub.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="WonsikWorldPKT_TYPE.h">
@@ -57,6 +54,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="WonsikWorldDummyProxy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WonsikWorldDummyStub.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

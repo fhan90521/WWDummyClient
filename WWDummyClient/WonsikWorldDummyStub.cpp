@@ -1,8 +1,7 @@
-#include "WonsikWorldServerStub.h"
-#include "IOCPServer.h"
-#include "Log.h"
+#include "WonsikWorldDummyStub.h"
+#include "DebugTool/Log.h"
 #include "WWVector2D.h"
-bool WonsikWorldServerStub::PacketProcEnterGame_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcEnterGame_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	WString nickName;
 	try
@@ -18,7 +17,7 @@ bool WonsikWorldServerStub::PacketProcEnterGame_CS(SessionInfo sessionInfo, CRec
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcEnterGame_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcEnterGame_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short enterGameResult;
 	LONG64 playerID;
@@ -35,7 +34,7 @@ bool WonsikWorldServerStub::PacketProcEnterGame_SC(SessionInfo sessionInfo, CRec
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcCreateMyCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcCreateMyCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	WWVector2D dirVec;
@@ -53,7 +52,7 @@ bool WonsikWorldServerStub::PacketProcCreateMyCharacter_SC(SessionInfo sessionIn
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcCreateOtherCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcCreateOtherCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	LONG64 playerID;
@@ -73,7 +72,7 @@ bool WonsikWorldServerStub::PacketProcCreateOtherCharacter_SC(SessionInfo sessio
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcDeleteCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcDeleteCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	LONG64 playerID;
@@ -90,7 +89,7 @@ bool WonsikWorldServerStub::PacketProcDeleteCharacter_SC(SessionInfo sessionInfo
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcChangeMap_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcChangeMap_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short beforeMapID;
 	short afterMapID;
@@ -107,7 +106,7 @@ bool WonsikWorldServerStub::PacketProcChangeMap_CS(SessionInfo sessionInfo, CRec
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcChangeMap_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcChangeMap_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short beforeMapID;
 	short afterMapID;
@@ -124,7 +123,7 @@ bool WonsikWorldServerStub::PacketProcChangeMap_SC(SessionInfo sessionInfo, CRec
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcSendChatMessage_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcSendChatMessage_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	WString chatMessage;
@@ -141,7 +140,7 @@ bool WonsikWorldServerStub::PacketProcSendChatMessage_CS(SessionInfo sessionInfo
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcSendChatMessage_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcSendChatMessage_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	LONG64 playerID;
@@ -159,7 +158,7 @@ bool WonsikWorldServerStub::PacketProcSendChatMessage_SC(SessionInfo sessionInfo
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcMoveMyCharacter_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcMoveMyCharacter_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	WWVector2D destination;
@@ -176,7 +175,7 @@ bool WonsikWorldServerStub::PacketProcMoveMyCharacter_CS(SessionInfo sessionInfo
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcMoveMyCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcMoveMyCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	Vector<WWVector2D> destinations;
@@ -193,7 +192,7 @@ bool WonsikWorldServerStub::PacketProcMoveMyCharacter_SC(SessionInfo sessionInfo
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcMoveOtherCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcMoveOtherCharacter_SC(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short mapID;
 	LONG64 playerID;
@@ -211,7 +210,7 @@ bool WonsikWorldServerStub::PacketProcMoveOtherCharacter_SC(SessionInfo sessionI
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProcHeartBeat_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProcHeartBeat_CS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	try
 	{
@@ -226,7 +225,7 @@ bool WonsikWorldServerStub::PacketProcHeartBeat_CS(SessionInfo sessionInfo, CRec
 	return true;
 }
 
-bool WonsikWorldServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool WonsikWorldDummyStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short packetType;
 	try

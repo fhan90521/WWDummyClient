@@ -1,6 +1,6 @@
 #include "WWDummyClient.h"
-#include "MakeShared.h"
-#include "Log.h"
+#include "Memory/MakeShared.h"
+#include "DebugTool/Log.h"
 #include "WWDummyRoom.h"
 
 void WWDummyClient::OnConnect(SessionInfo sessionInfo)

@@ -1,12 +1,11 @@
 #pragma once
-#include "Session.h"
-#include "IOCPDummyClient.h"
-#include "MyStlContainer.h"
+#include "Network/Session.h"
+#include "Container/MyStlContainer.h"
 class WWVector2D;
 class WonsikWorldDummyProxy
 {
 private:
-	IOCPDummyClient* _pDummyClient;
+	class IOCPDummyClient* _pDummyClient;
 public:
 	void EnterGame_CS(SessionInfo sessionInfo, const WString& nickName,  bool bDisconnect = false);
 	void EnterGame_CS(const List<SessionInfo>& sessionInfoList, const WString& nickName,  bool bDisconnect = false);
@@ -47,7 +46,7 @@ public:
 	void HeartBeat_CS(SessionInfo sessionInfo,  bool bDisconnect = false);
 	void HeartBeat_CS(const List<SessionInfo>& sessionInfoList,  bool bDisconnect = false);
 
-	WonsikWorldDummyProxy(IOCPDummyClient* pDummyClient)
+	WonsikWorldDummyProxy(class IOCPDummyClient* pDummyClient)
 	{
 		_pDummyClient = pDummyClient;
 	}

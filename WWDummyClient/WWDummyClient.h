@@ -1,10 +1,10 @@
 #pragma once
-#include "IOCPDummyClient.h"
+#include "Network/IOCPDummyClient.h"
+#include "Container/MyStlContainer.h"
 #include "WonsikWorldDummyProxy.h"
-#include "WonsikWorldServerStub.h"
+#include "WonsikWorldDummyStub.h"
 #include <thread>
-#include "MyStlContainer.h"
-class WWDummyClient: public IOCPDummyClient,public WonsikWorldDummyProxy, private WonsikWorldServerStub
+class WWDummyClient: public IOCPDummyClient,public WonsikWorldDummyProxy, private WonsikWorldDummyStub
 {
 private:
 	virtual void OnConnect(SessionInfo sessionInfo) override;

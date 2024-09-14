@@ -1,7 +1,7 @@
 #pragma once
 #include "WWEnum.h"
-#include "MyStlContainer.h"
-#include "MyWindow.h"
+#include "Container/MyStlContainer.h"
+#include "OS/MyWindow.h"
 enum class SessionType
 {
 	GUEST,
